@@ -160,6 +160,7 @@ VirtualEconomy uses a lightweight and performance-oriented technology stack.
 | `net/http` | HTTP server and API routing using Go's standard library |
 | PostgreSQL 17 | Relational database |
 | sqlc | Type-safe, compile-time generated Go code from SQL queries |
+| Goose | Database schema migrations |
 | Docker | Application containerization |
 | Docker Compose | Local development environment and service orchestration |
 
@@ -184,6 +185,24 @@ This provides:
 - Reduced runtime overhead.
 - Less boilerplate database code.
 - Better maintainability and performance.
+
+### Goose — Database Migrations
+
+Database schema migrations are managed using [Goose](https://github.com/pressly/goose).
+
+Goose provides version-controlled database migrations, allowing the database schema to evolve alongside the application.
+
+Migrations are stored in:
+
+```text
+src/internal/adapters/postgresql/migration/
+```
+
+To apply all migrations, run:
+
+```bash
+goose -dir .\src\internal\adapters\postgresql\migration postgres $DATABASE_URL up
+```
 
 ### Docker and Docker Compose
 
