@@ -5,6 +5,7 @@ import (
 	"errors"
 	"time"
 
+	"virtual.economy/src/internal/system"
 	"virtual.economy/src/internal/wallet"
 	"virtual.economy/src/pkg/uuid"
 	veUtils "virtual.economy/src/shared/utils"
@@ -79,7 +80,7 @@ func (s *svc) genPayDoubleEntry(i PayInput) []Ledge {
 			CreatedAt:  time.Now(),
 		},
 		{
-			ProfileId:  "SYSTEM_ID", // system,
+			ProfileId:  system.GetSystemID(), // system,
 			Amount:     calculatedFee.Fee,
 			ExchangeId: *i.Exchange,
 			Movement:   veUtils.MovementFee,
