@@ -20,7 +20,7 @@ type Service interface {
 
 func NewService(repo Repository, exchange exchange.Service) Service {
 	return &svc{
-		repo: repo,
+		repo:     repo,
 		exchange: exchange,
 	}
 }
