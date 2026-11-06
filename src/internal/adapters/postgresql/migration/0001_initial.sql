@@ -54,6 +54,8 @@ CREATE TABLE IF NOT EXISTS inventory (
     CONSTRAINT uq_inventory_profile_item UNIQUE (profile_id, item_id)
 );
 
+INSERT INTO profile (id, name, created_at) VALUES ("1", "__system", '1970-01-01 00:00:00+00'); -- system profile
+
 -- +goose Down 
 
 DROP TABLE IF EXISTS inventory;
